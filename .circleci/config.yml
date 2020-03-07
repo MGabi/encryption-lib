@@ -1,0 +1,91 @@
+version: 2.0
+jobs:
+  build_and_release:
+    docker:
+      - image: circleci/android:api-29
+    environment:
+      RAILS_ENV: test
+      RACK_ENV: test
+      _JAVA_OPTIONS: -Xmx3g -Xms1g
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      - run: |
+          echo "CircleCI build and release"
+          chmod +x gradlew
+      - run: yes | sdkmanager --licenses || exit 0
+      - run: yes | sdkmanager --update || exit 0
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      - run:
+          name: Run Android Lint
+          command: ./gradlew :app:lint
+      - run:
+          name: Run KTlint
+          command: ./gradlew :app:ktlint
+      - run:
+          name: Run Detekt
+          command: ./gradlew :app:detekt
+      - store_test_results:
+          path: app/build/test-results
+          destination: test-results/
+      - run:
+          name: Firebase Release
+          command: ./gradlew clean assembleRelease --no-daemon --stacktrace appDistributionUploadRelease
+      - store_artifacts:
+          path: app/build/outputs/apk/
+          destination: apks/
+  build_check:
+    docker:
+      - image: circleci/android:api-29
+    environment:
+      RAILS_ENV: test
+      RACK_ENV: test
+      _JAVA_OPTIONS: -Xmx3g -Xms1g
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      - run: |
+          echo "CircleCI pull request check"
+          chmod +x gradlew
+      - run: yes | sdkmanager --licenses || exit 0
+      - run: yes | sdkmanager --update || exit 0
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      - run:
+          name: Run Android Lint
+          command: ./gradlew :app:lint
+      - run:
+          name: Run KTlint
+          command: ./gradlew :app:ktlint
+      - run:
+          name: Run Detekt
+          command: ./gradlew :app:detekt
+workflows:
+  version: 2
+  flow-release:
+    jobs:
+      - build_and_release:
+          filters:
+            branches:
+              only: develop
+  flow-test:
+    jobs:
+      - build_check:
+          filters:
+            branches:
+              ignore:
+               - develop
+               - master
