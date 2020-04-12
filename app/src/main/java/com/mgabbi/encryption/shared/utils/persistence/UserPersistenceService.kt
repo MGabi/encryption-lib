@@ -1,9 +1,8 @@
 package com.mgabbi.encryption.shared.utils.persistence
 
-import com.orhanobut.hawk.Hawk
 import com.mgabbi.encryption.data.models.Token
 import com.mgabbi.encryption.data.models.UserProfile
-import com.mgabbi.encryption.shared.utils.persistence.HawkKeys
+import com.orhanobut.hawk.Hawk
 
 interface UserPersistenceService {
 

@@ -1,0 +1,39 @@
+apply plugin: 'com.jfrog.bintray'
+
+group 'com.mgabbi.encryption.lib'
+version libVersionName
+
+project.ext {
+    mavGitUrl = 'https://github.com/MGabi/encryption-lib.git'
+    mavProjectName = 'encryption-lib'
+    mavLibraryLicenses = ["Apache-2.0":'http://www.apache.org/licenses/LICENSE-2.0.txt']
+    mavLibraryDescription = "A Kotlin library to do easy encryption and decryption"
+    mavPublishToMavenLocal = true
+    mavSiteUrl = 'https://github.com/MGabi/encryption-lib'
+}
+
+
+def properties = new Properties()
+properties.load(new FileInputStream("local.properties"))
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    publications = ['mavenPublish']
+    configurations = ['archives']
+    override = true
+    pkg {
+        repo = 'encryption-lib'
+        name = 'encryption-lib'
+        description = "A Kotlin library to do easy encryption and decryption"
+        publicDownloadNumbers = true
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/MGabi/encryption-lib'
+        version {
+            name = libVersionName
+            desc = "Version ${libVersionName}"
+            released = new Date()
+            vcsTag = libVersionName
+        }
+    }
+}

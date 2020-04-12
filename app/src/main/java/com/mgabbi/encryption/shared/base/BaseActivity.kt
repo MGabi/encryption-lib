@@ -6,9 +6,9 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
+import com.mgabbi.encryption.BR
 import com.mgabbi.encryption.shared.utils.activityBinding
 import com.mgabbi.encryption.shared.utils.views.LoadingDialog
-import com.mgabbi.encryption.BR
 
 abstract class BaseActivity<BINDING : ViewDataBinding, VIEW_MODEL : ViewModel>
 constructor(@LayoutRes private val layoutResource: Int) : AppCompatActivity() {
