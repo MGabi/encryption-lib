@@ -7,4 +7,6 @@ enum class Algorithm {
     BLOWFISH,
     TWOFISH,
     AES;
+
+    val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 }

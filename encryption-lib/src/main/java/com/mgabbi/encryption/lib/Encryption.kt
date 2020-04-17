@@ -17,7 +17,6 @@ class Encryption {
 
     val secretKey = "abcdef"
 
-    @Throws(Exception::class)
     fun encrypt(word: String): String? {
         val ivBytes: ByteArray
         val password = "Hello"
@@ -44,7 +43,6 @@ class Encryption {
         return Base64.getEncoder().encodeToString(buffer)
     }
 
-    @Throws(java.lang.Exception::class)
     fun decrypt(encryptedText: String?): String? {
         val password = "Hello"
         val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
