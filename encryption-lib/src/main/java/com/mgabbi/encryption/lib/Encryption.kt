@@ -1,5 +1,6 @@
 package com.mgabbi.encryption.lib
 
+import com.mgabbi.encryption.lib.data.Key
 import java.nio.ByteBuffer
 import java.security.AlgorithmParameters
 import java.security.SecureRandom
@@ -7,13 +8,49 @@ import java.util.Base64
 import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
 import javax.crypto.IllegalBlockSizeException
+import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.PBEKeySpec
 import javax.crypto.spec.SecretKeySpec
 
-class Encryption {
+object Encryption {
+
+    private lateinit var key: Key
+
+    fun init(key: Key) {
+        this.key = key
+    }
+
+    fun encode(message: String) {
+        val cipher = Cipher.getInstance("${key.type}/CBC/PKCS5PADDING")
+    }
+
+    fun decode(message: String) {
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     val secretKey = "abcdef"
 

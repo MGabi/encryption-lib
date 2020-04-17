@@ -12,6 +12,5 @@ class APIKeyTest {
         val key = createAPIKey(t)
         val actual = decodeAPIKey(key)
         assertEquals(t, actual.type)
-        print(actual.pkey)
     }
 }
