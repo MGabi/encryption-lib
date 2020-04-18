@@ -1,12 +1,16 @@
 package com.mgabbi.encryption.lib
 
 enum class Algorithm {
-
-    TRIPLE_DES,
-    RSA,
+    AES,
     BLOWFISH,
-    TWOFISH,
-    AES;
+    DES,
+    DESede;
 
-    val allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    val keySize
+        get() = when (this) {
+            AES -> 256
+            BLOWFISH -> 256
+            DES -> 56
+            DESede -> 168
+        }
 }

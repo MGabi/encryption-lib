@@ -78,4 +78,4 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-task x(type: GradleBuild) { tasks = [":app:ktlintFormat", ":app:ktlint", ":app:detekt"] }
+task x(type: GradleBuild) { tasks = ["ktlintFormat", "ktlint", "detekt"] }
