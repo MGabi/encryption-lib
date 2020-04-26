@@ -10,6 +10,7 @@ class ApplicationClass : Application() {
     override fun onCreate() {
         super.onCreate()
         Hawk.init(applicationContext).build()
+        Encryption.init("")
         startKoin {
             modules(AppModules.modules)
         }
