@@ -5,7 +5,7 @@ import com.mgabbi.encryption.lib.data.Key
 import java.util.Base64
 import javax.crypto.KeyGenerator
 
-fun Encryption.createAPIKey(type: Algorithm): String {
+fun createAPIKey(type: Algorithm): String {
     val encoder = Base64.getEncoder()
     val gson = Gson()
 
@@ -21,7 +21,7 @@ fun Encryption.createAPIKey(type: Algorithm): String {
     return encoder.encodeToString(json.toByteArray())
 }
 
-fun Encryption.decodeAPIKey(key: String): Key {
+fun decodeAPIKey(key: String): Key {
     val decoder = Base64.getDecoder()
     val rawString = decoder.decode(key).toString(Charsets.UTF_8)
     return Gson().fromJson(rawString, Key::class.java)

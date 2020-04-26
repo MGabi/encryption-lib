@@ -1,4 +1,4 @@
-package com.mgabbi.encryption.core.main
+package com.mgabbi.encryption.core
 
 import com.mgabbi.encryption.ActMainBinding
 import com.mgabbi.encryption.R

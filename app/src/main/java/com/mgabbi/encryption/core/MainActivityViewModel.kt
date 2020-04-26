@@ -1,4 +1,4 @@
-package com.mgabbi.encryption.core.main
+package com.mgabbi.encryption.core
 
 import androidx.lifecycle.ViewModel
 

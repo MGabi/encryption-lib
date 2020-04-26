@@ -3,20 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/splashScreenFragment">
-
+    app:startDestination="@id/noApiFragment">
     <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.mgabbi.encryption.core.main.splash.SplashScreenFragment"
-        android:label="SplashScreenFragment"
-        tools:layout="@layout/fr_splash_screen" >
-        <action
-            android:id="@+id/action_splashScreenFragment_to_listFragment"
-            app:destination="@id/listFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/listFragment"
-        android:name="com.mgabbi.encryption.core.main.list.ListFragment"
-        android:label="ListFragment"
-        tools:layout="@layout/fr_list" />
+        android:id="@+id/noApiFragment"
+        android:name="com.mgabbi.encryption.core.local.NoApiFragment"
+        android:label="NoApiFragment"
+        tools:layout="@layout/fr_no_api_fragment" />
 </navigation>

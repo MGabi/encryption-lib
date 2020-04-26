@@ -8,8 +8,8 @@ class APIKeyTest {
     @Test
     fun createAPIKeyTest() {
         val t = Algorithm.AES
-        val key = Encryption.createAPIKey(t)
-        val actual = Encryption.decodeAPIKey(key)
+        val key = createAPIKey(t)
+        val actual = decodeAPIKey(key)
         assertEquals(t, actual.type)
     }
 }

@@ -1,11 +1,7 @@
 package com.mgabbi.encryption.lib
 
-import com.mgabbi.encryption.lib.data.Key
-import javax.crypto.SecretKey
-import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class LibTest {
 

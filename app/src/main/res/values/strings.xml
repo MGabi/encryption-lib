@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Encryption Sample App</string>
     <string name="splash_screen">Splash Screen</string>
+    <string name="your_message">Your message...</string>
+    <string name="encrypted">Encrypted message</string>
+    <string name="decrypted">Decrypted</string>
 </resources>
