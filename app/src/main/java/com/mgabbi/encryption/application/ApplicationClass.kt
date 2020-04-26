@@ -1,6 +1,7 @@
 package com.mgabbi.encryption.application
 
 import android.app.Application
+import com.mgabbi.encryption.lib.Encryption
 import com.orhanobut.hawk.Hawk
 import org.koin.core.context.startKoin
 

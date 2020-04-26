@@ -20,7 +20,6 @@ bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")
     publications = ['mavenPublish']
-    configurations = ['archives']
     override = true
     pkg {
         repo = 'encryption-lib'
