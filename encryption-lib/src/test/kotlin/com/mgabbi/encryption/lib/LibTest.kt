@@ -8,8 +8,7 @@ class LibTest {
     @Test
     fun testBLOWFISH() {
         with(Encryption) {
-            val key = decodeAPIKey(createAPIKey(Algorithm.BLOWFISH))
-            init(key)
+            init(createAPIKey(Algorithm.BLOWFISH))
             testEncryptionDecryption()
         }
     }
@@ -17,8 +16,7 @@ class LibTest {
     @Test
     fun testAES() {
         with(Encryption) {
-            val key = decodeAPIKey(createAPIKey(Algorithm.AES))
-            init(key)
+            init(createAPIKey(Algorithm.AES))
             testEncryptionDecryption()
         }
     }
@@ -26,8 +24,7 @@ class LibTest {
     @Test
     fun testDES() {
         with(Encryption) {
-            val key = decodeAPIKey(createAPIKey(Algorithm.DES))
-            init(key)
+            init(createAPIKey(Algorithm.DES))
             testEncryptionDecryption()
         }
     }
@@ -35,8 +32,7 @@ class LibTest {
     @Test
     fun testDESede() {
         with(Encryption) {
-            val key = decodeAPIKey(createAPIKey(Algorithm.DESede))
-            init(key)
+            init(createAPIKey(Algorithm.DESede))
             testEncryptionDecryption()
         }
     }
