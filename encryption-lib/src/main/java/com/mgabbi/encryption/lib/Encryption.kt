@@ -7,8 +7,8 @@ object Encryption {
 
     private lateinit var key: Key
 
-    fun init(key: Key) {
-        this.key = key
+    fun init(keyStr: String) {
+        this.key = decodeAPIKey(keyStr)
     }
 
     fun encode(message: String): ByteArray {

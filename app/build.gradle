@@ -135,6 +135,9 @@ dependencies {
 
     // Hawk
     implementation "com.orhanobut:hawk:$rootProject.hawk"
+
+    // Encryption lib
+    implementation "com.mgabbi.encryption.lib:encryption-lib:$rootProject.libVersionName"
 }
 
 apply plugin: 'com.google.gms.google-services'
