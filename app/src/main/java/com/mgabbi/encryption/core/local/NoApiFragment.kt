@@ -5,6 +5,7 @@ import com.mgabbi.encryption.NoApiBinding
 import com.mgabbi.encryption.R
 import com.mgabbi.encryption.shared.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.Base64
 
 class NoApiFragment : BaseFragment<NoApiBinding, NoApiViewModel>(R.layout.fr_no_api_fragment) {
 
