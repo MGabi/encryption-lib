@@ -2,6 +2,8 @@ package com.mgabbi.encryption.data.api
 
 import com.google.gson.GsonBuilder
 import com.mgabbi.encryption.BuildConfig
+import com.mgabbi.encryption.data.api.interceptors.DecryptionInterceptor
+import com.mgabbi.encryption.data.api.interceptors.EncryptionInterceptor
 import java.util.concurrent.TimeUnit
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,10 +16,6 @@ object ApiProvider {
 
     fun provideMockAPI(): MockAPI = retrofit.create(MockAPI::class.java)
 
-    private val authInterceptor: AuthenticationInterceptor by lazy {
-        AuthenticationInterceptor()
-    }
-
     private val gsonConverterFactory: GsonConverterFactory = let {
         val gson = GsonBuilder()
             .setLenient()
@@ -27,7 +25,8 @@ object ApiProvider {
 
     private val okHttpClient: OkHttpClient = let {
         val client = OkHttpClient.Builder()
-            .addInterceptor(authInterceptor)
+            .addInterceptor(EncryptionInterceptor())
+            .addInterceptor(DecryptionInterceptor())
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
