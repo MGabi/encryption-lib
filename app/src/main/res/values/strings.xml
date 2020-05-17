@@ -4,4 +4,5 @@
     <string name="your_message">Your message...</string>
     <string name="encrypted">Encrypted message</string>
     <string name="decrypted">Decrypted</string>
+    <string name="api_key">eyJ0eXBlIjoiQkxPV0ZJU0giLCJwa2V5IjoiNHZLVklJQnExOFh5R2pPcVd5OHhDaHZSeEFtSHBxcVFTY3UvaHZRYUhpUVx1MDAzZCJ9</string>
 </resources>

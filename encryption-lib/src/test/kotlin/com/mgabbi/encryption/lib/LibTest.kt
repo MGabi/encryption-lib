@@ -22,6 +22,22 @@ class LibTest {
     }
 
     @Test
+    fun testAES_GCM_NOPADDING() {
+        with(Encryption) {
+            init(createAPIKey(Algorithm.AES_GCM_NoPadding))
+            testEncryptionDecryption()
+        }
+    }
+
+    @Test
+    fun testAES_CBC_PKCS5PADDING() {
+        with(Encryption) {
+            init(createAPIKey(Algorithm.AES_CBC_PKCS5PADDING))
+            testEncryptionDecryption()
+        }
+    }
+
+    @Test
     fun testDES() {
         with(Encryption) {
             init(createAPIKey(Algorithm.DES))
@@ -38,7 +54,7 @@ class LibTest {
     }
 
     private fun testEncryptionDecryption() {
-        val message = "abcdefgh"
+        val message = "My Message"
         val enc = Encryption.encode(message)
         val decoded = Encryption.decode(enc)
         assertEquals(message, decoded)
