@@ -1,7 +1,9 @@
-package com.mgabbi.encryption.lib
+package com.mgabbi.encryption.lib.crypto
 
 import com.mgabbi.encryption.lib.data.Key
-import com.mgabbi.encryption.lib.data.KeyUtils
+import com.mgabbi.encryption.lib.initForKey
+import com.mgabbi.encryption.lib.key.KeyUtilsImpl
+import com.mgabbi.encryption.lib.keyString
 import javax.crypto.Cipher
 
 interface IEncryption {
@@ -13,7 +15,7 @@ interface IEncryption {
 }
 
 internal class EncryptionImpl(keyStr: String) : IEncryption {
-    override val key: Key = KeyUtils.decodeAPIKey(keyStr)
+    override val key: Key = KeyUtilsImpl().decodeAPIKey(keyStr)
 
     override fun encode(message: String): ByteArray {
         val cipher = Cipher.getInstance(key.type.keyString()).apply {

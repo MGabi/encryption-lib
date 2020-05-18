@@ -1,7 +1,8 @@
-package com.mgabbi.encryption.lib.data
+package com.mgabbi.encryption.lib.key
 
 import com.google.gson.Gson
 import com.mgabbi.encryption.lib.Algorithm
+import com.mgabbi.encryption.lib.data.Key
 import com.mgabbi.encryption.lib.mainAlgorithm
 import com.mgabbi.encryption.lib.randomIV
 import java.util.Base64
@@ -12,7 +13,7 @@ interface IKeyUtils {
     fun decodeAPIKey(key: String): Key
 }
 
-internal object KeyUtils : IKeyUtils {
+internal class KeyUtilsImpl : IKeyUtils {
     override fun createAPIKey(type: Algorithm): String {
         val encoder = Base64.getEncoder()
         val gson = Gson()

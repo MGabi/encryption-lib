@@ -1,6 +1,7 @@
 package com.mgabbi.encryption.lib
 
-import com.mgabbi.encryption.lib.data.KeyUtils
+import com.mgabbi.encryption.lib.crypto.Encryption
+import com.mgabbi.encryption.lib.key.KeyUtils
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

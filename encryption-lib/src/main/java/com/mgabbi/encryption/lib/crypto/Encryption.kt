@@ -1,4 +1,4 @@
-package com.mgabbi.encryption.lib
+package com.mgabbi.encryption.lib.crypto
 
 object Encryption {
 
