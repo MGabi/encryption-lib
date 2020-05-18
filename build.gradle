@@ -3,8 +3,8 @@
 buildscript {
 
     ext {
-        libVersionCode = '6'
-        libVersionName = '1.6'
+        libVersionCode = '7'
+        libVersionName = '1.7'
         build_gradle = '3.6.3'
         kotlin = '1.3.72'
         app_compat = '1.0.2'
