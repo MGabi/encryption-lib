@@ -10,9 +10,8 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-        maven { url 'https://plugins.gradle.org/m2' }
-        mavenLocal()
+        maven { url 'https://dl.bintray.com/mgabi/encryption-lib' }
+        mavenCentral()
     }
 }
 
@@ -140,9 +139,7 @@ dependencies {
     implementation "com.orhanobut:hawk:$rootProject.hawk"
 
     // Encryption lib
-//    implementation "com.mgabbi.encryption.lib:encryption-lib:1.6"
-
-    implementation project(':encryption-lib')
+    implementation 'com.mgabbi.encryption.lib:encryption-lib:1.6'
 }
 
 apply plugin: 'com.google.gms.google-services'
