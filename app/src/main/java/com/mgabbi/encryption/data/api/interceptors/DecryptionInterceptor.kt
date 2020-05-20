@@ -15,8 +15,7 @@ class DecryptionInterceptor : Interceptor {
         if (response.isSuccessful) {
             val newResponse = response.newBuilder()
 
-            val mediaType = (response.header("Content-Type")?.takeIf { it.isNotEmpty() }
-                ?: "application/json").toMediaType()
+            val mediaType = "application/json; charset=UTF-8".toMediaType()
 
             val encryptedResponse = response.body?.bytes() ?: byteArrayOf()
             val decryptedResponse = Encryption.decode(encryptedResponse)
@@ -24,7 +23,8 @@ class DecryptionInterceptor : Interceptor {
             Log.d(tag, ">>>Decrypting>>> Encrypted response: $encryptedResponse")
             Log.d(tag, ">>>Decrypting>>> Decrypted response: $decryptedResponse")
 
-            newResponse.body(decryptedResponse.toResponseBody(mediaType))
+            val newBody = decryptedResponse.toResponseBody(mediaType)
+            newResponse.body(newBody)
 
             return newResponse.build()
         }
