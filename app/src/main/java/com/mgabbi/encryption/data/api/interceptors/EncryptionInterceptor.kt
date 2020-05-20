@@ -1,7 +1,7 @@
 package com.mgabbi.encryption.data.api.interceptors
 
 import android.util.Log
-import com.mgabbi.encryption.lib.Encryption
+import com.mgabbi.encryption.lib.crypto.Encryption
 import okhttp3.Interceptor
 import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
@@ -18,8 +18,8 @@ class EncryptionInterceptor : Interceptor {
         val rawBodyString = unencryptedBody?.requestBodyToRawString() ?: ""
         val encryptedBody = Encryption.encode(rawBodyString)
 
-        Log.d(tag, "Raw body: $unencryptedBody")
-        Log.d(tag, "Encrypted body: $encryptedBody")
+        Log.d(tag, ">>>Encrypting>>> Raw body: $rawBodyString")
+        Log.d(tag, ">>>Encrypting>>> Encrypted body: $encryptedBody")
 
         val newBody = encryptedBody.toRequestBody()
 

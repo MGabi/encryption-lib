@@ -3,7 +3,7 @@ package com.mgabbi.encryption.core.local
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.map
-import com.mgabbi.encryption.lib.Encryption
+import com.mgabbi.encryption.lib.crypto.Encryption
 import com.mgabbi.encryption.shared.base.BaseViewModel
 import com.mgabbi.encryption.shared.utils.LiveEvent
 

@@ -25,7 +25,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField 'String', 'BASE_URL', '"https://5d4c17f600dbb1001487a4ab.mockapi.io/api/"'
+//        buildConfigField 'String', 'BASE_URL', '"https://5d4c17f600dbb1001487a4ab.mockapi.io/api/"'
+        buildConfigField 'String', 'BASE_URL', '"http://10.0.2.2:8080/api/"'
     }
 
     signingConfigs {
@@ -139,7 +140,7 @@ dependencies {
     implementation "com.orhanobut:hawk:$rootProject.hawk"
 
     // Encryption lib
-    implementation 'com.mgabbi.encryption.lib:encryption-lib:1.7'
+    implementation 'com.mgabbi.encryption.lib:encryption-lib:1.8'
 }
 
 apply plugin: 'com.google.gms.google-services'

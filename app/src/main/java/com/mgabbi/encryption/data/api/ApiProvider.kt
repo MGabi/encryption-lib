@@ -14,7 +14,7 @@ private const val TIMEOUT = 30L
 
 object ApiProvider {
 
-    fun provideMockAPI(): MockAPI = retrofit.create(MockAPI::class.java)
+    fun provideMockAPI(): EncryptedApi = retrofit.create(EncryptedApi::class.java)
 
     private val gsonConverterFactory: GsonConverterFactory = let {
         val gson = GsonBuilder()

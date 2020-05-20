@@ -3,10 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/noApiFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/noApiFragment"
         android:name="com.mgabbi.encryption.core.local.NoApiFragment"
         android:label="NoApiFragment"
         tools:layout="@layout/fr_no_api_fragment" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mgabbi.encryption.core.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fr_home">
+        <action
+            android:id="@+id/action_homeFragment_to_remoteCallFragment"
+            app:destination="@id/remoteCallFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_noApiFragment"
+            app:destination="@id/noApiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/remoteCallFragment"
+        android:name="com.mgabbi.encryption.core.remote.RemoteCallFragment"
+        android:label="RemoteCallFragment"
+        tools:layout="@layout/fr_remote_call" />
 </navigation>

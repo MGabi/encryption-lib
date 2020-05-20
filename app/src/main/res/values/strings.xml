@@ -5,4 +5,8 @@
     <string name="encrypted">Encrypted message</string>
     <string name="decrypted">Decrypted</string>
     <string name="api_key">eyJ0eXBlIjoiQUVTX0NCQ19QS0NTNVBBRERJTkciLCJwS2V5IjoiZ21UeE1QRm03SkFDYkVzcThzdi94NTZMVWdxZjJ5NldlQno1VllTOVpSWVx1MDAzZCIsIml2IjpbMTAxLC0zMSwyNywxMTAsLTEyOCwyMSwxMTYsLTMwLDEyNywtOSwxMTksNjcsLTM5LC0xMjQsLTkwLC0zNl19</string>
+    <string name="local_encryption">Local encryption</string>
+    <string name="remote_text">Remote communication</string>
+    <string name="enter_message">Enter a message</string>
+    <string name="send">Send</string>
 </resources>

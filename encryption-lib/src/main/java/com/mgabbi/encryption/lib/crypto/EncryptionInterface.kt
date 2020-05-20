@@ -32,4 +32,3 @@ internal class EncryptionImpl(keyStr: String) : IEncryption {
         return cipher.doFinal(message).toString(Charsets.UTF_8)
     }
 }
-
