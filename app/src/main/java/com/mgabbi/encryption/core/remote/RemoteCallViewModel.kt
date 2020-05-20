@@ -2,6 +2,7 @@ package com.mgabbi.encryption.core.remote
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.mgabbi.encryption.data.models.SimpleRequest
 import com.mgabbi.encryption.data.models.SimpleResponse
 import com.mgabbi.encryption.data.repo.EncryptedRepo
 import com.mgabbi.encryption.shared.base.BaseViewModel
@@ -25,7 +26,7 @@ class RemoteCallViewModel : BaseViewModel(), KoinComponent {
     fun sendMessage() {
         performApiCall {
             val msg = message.value ?: "empty"
-            val response = repo.sendMessage(msg)
+            val response = repo.sendMessage(SimpleRequest(msg))
 
             receivedMessage.value = response
         }
