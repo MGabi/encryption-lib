@@ -14,7 +14,8 @@ private const val TIMEOUT = 30L
 
 object ApiProvider {
 
-    fun provideMockAPI(): EncryptedApi = retrofit.create(EncryptedApi::class.java)
+    fun provideEncryptedAPI(): EncryptedApi = retrofitEncrypted.create(EncryptedApi::class.java)
+    fun provideSimpleAPI(): SimpleApi = retrofit.create(SimpleApi::class.java)
 
     private val gsonConverterFactory: GsonConverterFactory = let {
         val gson = GsonBuilder()
@@ -23,10 +24,31 @@ object ApiProvider {
         GsonConverterFactory.create(gson)
     }
 
-    private val okHttpClient: OkHttpClient = let {
+    // Encrypted Client
+
+    private val okHttpClientEncrypted: OkHttpClient = let {
         val client = OkHttpClient.Builder()
             .addInterceptor(EncryptionInterceptor())
             .addInterceptor(DecryptionInterceptor())
+            .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(TIMEOUT, TimeUnit.SECONDS)
+            .writeTimeout(TIMEOUT, TimeUnit.SECONDS)
+        if (BuildConfig.DEBUG) {
+            client.addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
+        }
+        client.build()
+    }
+
+    private val retrofitEncrypted: Retrofit = Retrofit.Builder()
+        .baseUrl(BuildConfig.BASE_URL)
+        .addConverterFactory(gsonConverterFactory)
+        .client(okHttpClientEncrypted)
+        .build()
+
+    // Simple Client
+
+    private val okHttpClient: OkHttpClient = let {
+        val client = OkHttpClient.Builder()
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT, TimeUnit.SECONDS)

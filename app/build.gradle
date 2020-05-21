@@ -25,8 +25,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-//        buildConfigField 'String', 'BASE_URL', '"https://5d4c17f600dbb1001487a4ab.mockapi.io/api/"'
-        buildConfigField 'String', 'BASE_URL', '"http://10.0.2.2:8080/api/"'
+        buildConfigField 'String', 'BASE_URL', '"http://encryption-dashboard.herokuapp.com/api/"'
+//        buildConfigField 'String', 'BASE_URL', '"http://10.0.2.2:8080/api/"'
     }
 
     signingConfigs {
@@ -130,6 +130,7 @@ dependencies {
     implementation "com.google.code.gson:gson:$rootProject.gson"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.converters"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.logging_interceptor"
+    implementation "com.squareup.okhttp3:okhttp:4.7.2"
 
     // Permissions
     implementation "com.github.tbruyelle:rxpermissions:$rootProject.rx_permissions"

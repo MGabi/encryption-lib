@@ -9,3 +9,8 @@ interface EncryptedApi {
     @POST("testEncryption")
     suspend fun sendMessage(@Body message: SimpleRequest): SimpleResponse
 }
+
+interface SimpleApi {
+    @POST("testRawResponse")
+    suspend fun sendMessageRaw(@Body message: SimpleRequest): SimpleResponse
+}

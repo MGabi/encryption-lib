@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.mgabbi.encryption.data.models.SimpleRequest
 import com.mgabbi.encryption.data.models.SimpleResponse
 import com.mgabbi.encryption.data.repo.EncryptedRepo
+import com.mgabbi.encryption.data.repo.SimpleRepo
 import com.mgabbi.encryption.shared.base.BaseViewModel
 import com.mgabbi.encryption.shared.utils.LiveEvent
 import org.koin.core.KoinComponent
@@ -12,7 +13,8 @@ import org.koin.core.inject
 
 class RemoteCallViewModel : BaseViewModel(), KoinComponent {
 
-    private val repo by inject<EncryptedRepo>()
+    private val repoEncrypted by inject<EncryptedRepo>()
+    private val repo by inject<SimpleRepo>()
 
     // Properties
 
@@ -26,7 +28,16 @@ class RemoteCallViewModel : BaseViewModel(), KoinComponent {
     fun sendMessage() {
         performApiCall {
             val msg = message.value ?: "empty"
-            val response = repo.sendMessage(SimpleRequest(msg))
+            val response = repoEncrypted.sendMessage(SimpleRequest(msg))
+
+            receivedMessage.value = response
+        }
+    }
+
+    fun sendMessageRaw() {
+        performApiCall {
+            val msg = message.value ?: "empty"
+            val response = repo.sendMessageRaw(SimpleRequest(msg))
 
             receivedMessage.value = response
         }

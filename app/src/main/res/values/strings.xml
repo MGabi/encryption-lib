@@ -8,5 +8,6 @@
     <string name="local_encryption">Local encryption</string>
     <string name="remote_text">Remote communication</string>
     <string name="enter_message">Enter a message</string>
-    <string name="send">Send</string>
+    <string name="send_encrypted">Send Encrypted</string>
+    <string name="send_raw">Send Raw</string>
 </resources>
