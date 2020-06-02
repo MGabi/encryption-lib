@@ -7,7 +7,7 @@ object Encryption {
         encryption = EncryptionImpl(keyStr)
     }
 
-    fun encode(message: String) = encryption.encode(message)
+    fun encrypt(message: String) = encryption.encrypt(message)
 
-    fun decode(message: ByteArray) = encryption.decode(message)
+    fun decrypt(message: ByteArray) = encryption.decrypt(message)
 }

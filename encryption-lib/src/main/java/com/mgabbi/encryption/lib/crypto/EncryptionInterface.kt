@@ -10,21 +10,21 @@ interface IEncryption {
 
     val key: Key
 
-    fun encode(message: String): ByteArray
-    fun decode(message: ByteArray): String
+    fun encrypt(message: String): ByteArray
+    fun decrypt(message: ByteArray): String
 }
 
 internal class EncryptionImpl(keyStr: String) : IEncryption {
     override val key: Key = KeyUtilsImpl().decodeAPIKey(keyStr)
 
-    override fun encode(message: String): ByteArray {
+    override fun encrypt(message: String): ByteArray {
         val cipher = Cipher.getInstance(key.type.keyString()).apply {
             initForKey(key, Cipher.ENCRYPT_MODE)
         }
         return cipher.doFinal(message.toByteArray())
     }
 
-    override fun decode(message: ByteArray): String {
+    override fun decrypt(message: ByteArray): String {
         val cipher = Cipher.getInstance(key.type.keyString()).apply {
             initForKey(key, Cipher.DECRYPT_MODE)
         }

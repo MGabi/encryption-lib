@@ -21,6 +21,7 @@ internal class KeyUtilsImpl : IKeyUtils {
         val generator = KeyGenerator.getInstance(type.mainAlgorithm()).apply { init(type.keySize) }
         val pKey = generator.generateKey()
 
+
         val json = gson.toJson(
             Key(
                 type,

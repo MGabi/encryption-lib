@@ -6,6 +6,7 @@ import java.util.Base64
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
 
+@Suppress("ArrayInDataClass")
 data class Key(
     val type: Algorithm,
     val pKey: String,

@@ -66,9 +66,7 @@ android {
         experimental = true
     }
 
-    dataBinding {
-        enabled = true
-    }
+    buildFeatures.dataBinding = true
 
     compileOptions {
         sourceCompatibility rootProject.java_version
@@ -141,7 +139,7 @@ dependencies {
     implementation "com.orhanobut:hawk:$rootProject.hawk"
 
     // Encryption lib
-    implementation 'com.mgabbi.encryption.lib:encryption-lib:1.8'
+    implementation 'com.mgabbi.encryption.lib:encryption-lib:1.9'
 }
 
 apply plugin: 'com.google.gms.google-services'

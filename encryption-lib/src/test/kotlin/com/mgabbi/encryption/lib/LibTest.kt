@@ -45,8 +45,8 @@ class LibTest {
 
     private fun testEncryptionDecryption() {
         val message = "My Message"
-        val enc = Encryption.encode(message)
-        val decoded = Encryption.decode(enc)
+        val enc = Encryption.encrypt(message)
+        val decoded = Encryption.decrypt(enc)
         assertEquals(message, decoded)
     }
 }
