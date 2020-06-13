@@ -16,10 +16,10 @@ class NoApiViewModel : BaseViewModel() {
 
     val message = MutableLiveData<String>()
 
-    private val encrypted = message.map { Encryption.encode(it) }
+    private val encrypted = message.map { Encryption.encrypt(it) }
     val encryptedString = encrypted.map { it.toString(Charsets.UTF_8) }
 
-    val decrypted = encrypted.map { Encryption.decode(it) }
+    val decrypted = encrypted.map { Encryption.decrypt(it) }
 
     // Actions
 

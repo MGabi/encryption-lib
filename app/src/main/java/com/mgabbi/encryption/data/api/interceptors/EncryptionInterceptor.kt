@@ -16,7 +16,7 @@ class EncryptionInterceptor : Interceptor {
         // val mediaType = "text/plain; charset=utf-8".toMediaType()
 
         val rawBodyString = unencryptedBody?.requestBodyToRawString() ?: ""
-        val encryptedBody = Encryption.encode(rawBodyString)
+        val encryptedBody = Encryption.encrypt(rawBodyString)
 
         Log.d(tag, ">>>Encrypting>>> Raw body: $rawBodyString")
         Log.d(tag, ">>>Encrypting>>> Encrypted body: $encryptedBody")

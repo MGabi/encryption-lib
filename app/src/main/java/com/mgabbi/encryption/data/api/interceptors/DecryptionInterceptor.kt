@@ -18,7 +18,7 @@ class DecryptionInterceptor : Interceptor {
             val mediaType = "application/json; charset=UTF-8".toMediaType()
 
             val encryptedResponse = response.body?.bytes() ?: byteArrayOf()
-            val decryptedResponse = Encryption.decode(encryptedResponse)
+            val decryptedResponse = Encryption.decrypt(encryptedResponse)
 
             Log.d(tag, ">>>Decrypting>>> Encrypted response: $encryptedResponse")
             Log.d(tag, ">>>Decrypting>>> Decrypted response: $decryptedResponse")

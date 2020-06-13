@@ -26,22 +26,11 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField 'String', 'BASE_URL', '"http://encryption-dashboard.herokuapp.com/api/"'
-//        buildConfigField 'String', 'BASE_URL', '"http://10.0.2.2:8080/api/"'
     }
 
     signingConfigs {
         debug {}
-        release {
-//            Set these according to your project
-//            Take care that you need to sign the app in release mode
-//            to be able to make a Firebase Distribution release through Circle CI
-//            Don't forget to also set the `FIREBASE_TOKEN` variable on Circle CI according to docs
-
-//            storeFile file('../keystore')
-//            storePassword System.getenv("KEYSTORE_PASSWORD")
-//            keyAlias System.getenv("KEY_ALIAS")
-//            keyPassword System.getenv("KEY_PASSWORD")
-        }
+        release {}
     }
 
     buildTypes {
@@ -53,12 +42,6 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-//            Check firebase app distribution documentation for more details and how to get the App ID
-
-//            firebaseAppDistribution {
-//                testersFile = "app/testers.txt"
-//                appId = "1:814852906141:android:60f848afe1ee0851b64874"
-//            }
         }
     }
 
